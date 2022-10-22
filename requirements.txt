@@ -8,4 +8,4 @@ tensorflow
 keras
 numpy
 opencv-python-headless
-tempfile
+temp
