@@ -4,6 +4,7 @@ import math
 import pandas as pd
 import streamlit as st
 from img_classification import teachable_machine_classification
+from PIL import Image
 
 """
 # Welcome to Streamlit!
