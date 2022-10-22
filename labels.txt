@@ -1,0 +1,15 @@
+0 Táo
+1 Bơ
+2 Chuối
+3 Nho
+4 Ổi
+5 Chanh
+6 Kiwi
+7 Cam
+8 Đào
+9 Thơm
+10 Dâu tây
+11 Cà chua
+12 Dưa hấu
+13 Chanh dây
+14 Lựu
