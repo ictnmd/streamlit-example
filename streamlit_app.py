@@ -60,13 +60,13 @@ if uploaded_file is not None:
     elif label == 4:
         st.write("Ổi")
     elif label == 5:
-        st.write("Bơ")
-    elif label == 6:
         st.write("Chanh")
-    elif label == 7:
+    elif label == 6:
         st.write("Kiwi")
-    elif label == 8:
+    elif label == 7:
         st.write("Cam")
+    elif label == 8:
+        st.write("Đào")
     elif label == 9:
         st.write("Thơm")
     elif label == 10:
