@@ -5,7 +5,11 @@ import pandas as pd
 import streamlit as st
 from img_classification import fruit_classification
 from PIL import Image
-
+import cv2
+from skimage import io
+from skimage.metrics import structural_similarity as compare_ssim
+import tempfile
+import numpy as np
 """
 # Welcome to Streamlit!
 
@@ -83,3 +87,33 @@ if uploaded_file is not None:
     else:
         st.write("Không rõ")
     st.write("Với tỷ lệ: ",score)
+
+
+
+upload_file2=st.file_uploader("Choose a video file", type="mp4")
+
+
+if upload_file2 is not None:
+    st.video(upload_file2)
+
+    tfile = tempfile.NamedTemporaryFile(delete=False) 
+    tfile.write(upload_file2.read())
+
+    vf = cv2.VideoCapture(tfile.name)
+
+    stframe = st.empty()
+    sec = 0
+    count=0
+    while vf.isOpened():
+        vf.set(cv2.CAP_PROP_POS_MSEC, sec*1000)
+        ret, frame = vf.read()
+        sec = sec + ret
+        sec = round(sec, 2)
+      
+        # if frame is read correctly ret is True
+        if not ret:
+            st.write("Can't receive frame (stream end?). Exiting ...")
+            break
+        else:
+            st.write("duc")
+            #here iwant to upload te images

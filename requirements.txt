@@ -3,3 +3,7 @@ pandas
 streamlit
 keras
 tensorflow
+numpy
+skimage
+tempfile
+cv2
