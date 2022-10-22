@@ -1,11 +1,12 @@
+h5py
+typing-extensions
+wheel
 altair
 pandas
 streamlit
 tensorflow
 keras
-h5py
-typing-extensions
-wheel
+
 numpy
 skimage
 tempfile
