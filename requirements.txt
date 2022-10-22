@@ -1,8 +1,8 @@
 altair
 pandas
 streamlit
-keras
 tensorflow
+keras
 numpy
 skimage
 tempfile

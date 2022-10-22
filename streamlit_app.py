@@ -109,7 +109,6 @@ if upload_file2 is not None:
         ret, frame = vf.read()
         sec = sec + ret
         sec = round(sec, 2)
-      
         # if frame is read correctly ret is True
         if not ret:
             st.write("Can't receive frame (stream end?). Exiting ...")
