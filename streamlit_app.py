@@ -50,36 +50,36 @@ if uploaded_file is not None:
     st.write("Classifying...")
     label, score = fruit_classification(image, 'keras_model.h5')
     if label == 0:
-        st.write("Táo")
+        st.write("Đây là quả Táo")
     elif label == 1:
-        st.write("Bơ")
+        st.write("Đây là quả Bơ")
     elif label == 2:
-        st.write("Chuối")
+        st.write("Đây là quả Chuối")
     elif label == 3:
-        st.write("Nho")
+        st.write("Đây là quả Nho")
     elif label == 4:
-        st.write("Ổi")
+        st.write("Đây là quả Ổi")
     elif label == 5:
-        st.write("Chanh")
+        st.write("Đây là quả Chanh")
     elif label == 6:
-        st.write("Kiwi")
+        st.write("Đây là quả Kiwi")
     elif label == 7:
-        st.write("Cam")
+        st.write("Đây là quả Cam")
     elif label == 8:
-        st.write("Đào")
+        st.write("Đây là quả Đào")
     elif label == 9:
-        st.write("Thơm")
+        st.write("Đây là quả Thơm")
     elif label == 10:
-        st.write("Dâu tây")
+        st.write("Đây là quả Dâu tây")
     elif label == 11:
-        st.write("Cà chua")
+        st.write("Đây là quả Cà chua")
     elif label == 12:
-        st.write("Dưa hấu")
+        st.write("Đây là quả Dưa hấu")
     elif label == 13:
-        st.write("Chanh dây")
+        st.write("Đây là quả Chanh dây")
     elif label == 14:
-        st.write("Lựu")
+        st.write("Đây là quả Lựu")
     
     else:
         st.write("Không rõ")
-    st.write(score)
+    st.write("Với tỷ lệ: ",score)
