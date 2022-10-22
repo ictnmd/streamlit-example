@@ -3,4 +3,4 @@ pandas
 streamlit
 tensorflow
 keras
-cv2
+opencv-python
