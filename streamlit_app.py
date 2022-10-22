@@ -61,23 +61,23 @@ if uploaded_file is not None:
         st.write("Ổi")
     elif label == 5:
         st.write("Bơ")
-    elif label == 5:
+    elif label == 6:
         st.write("Chanh")
-    elif label == 5:
+    elif label == 7:
         st.write("Kiwi")
-    elif label == 5:
+    elif label == 8:
         st.write("Cam")
-    elif label == 5:
+    elif label == 9:
         st.write("Thơm")
-    elif label == 5:
+    elif label == 10:
         st.write("Dâu tây")
-    elif label == 5:
+    elif label == 11:
         st.write("Cà chua")
-    elif label == 5:
+    elif label == 12:
         st.write("Dưa hấu")
-    elif label == 5:
+    elif label == 13:
         st.write("Chanh dây")
-    elif label == 5:
+    elif label == 14:
         st.write("Lựu")
     
     else:
