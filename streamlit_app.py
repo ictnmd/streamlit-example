@@ -45,13 +45,7 @@ with st.echo(code_location='below'):
         .mark_circle(color='#0068c9', opacity=0.5)
         .encode(x='x:Q', y='y:Q'))
 
-
-uploaded_file = st.file_uploader("Tải lên hình ảnh", type="jpg")
-if uploaded_file is not None:
-    image = Image.open(uploaded_file)
-    st.image(image, caption='Ảnh đã upload', use_column_width=True)
-    st.write("")
-    st.write("Classifying...")
+def classify_and_label(image):
     label, score = fruit_classification(image, 'keras_model.h5')
     if label == 0:
         st.write("Đây là quả Táo")
@@ -88,6 +82,49 @@ if uploaded_file is not None:
         st.write("Không rõ")
     st.write("Với tỷ lệ: ",score)
 
+uploaded_file = st.file_uploader("Tải lên hình ảnh", type="jpg")
+if uploaded_file is not None:
+    image = Image.open(uploaded_file)
+    st.image(image, caption='Ảnh đã upload', use_column_width=True)
+    st.write("")
+    st.write("Classifying...")
+    # label, score = fruit_classification(image, 'keras_model.h5')
+    # if label == 0:
+    #     st.write("Đây là quả Táo")
+    # elif label == 1:
+    #     st.write("Đây là quả Bơ")
+    # elif label == 2:
+    #     st.write("Đây là quả Chuối")
+    # elif label == 3:
+    #     st.write("Đây là quả Nho")
+    # elif label == 4:
+    #     st.write("Đây là quả Ổi")
+    # elif label == 5:
+    #     st.write("Đây là quả Chanh")
+    # elif label == 6:
+    #     st.write("Đây là quả Kiwi")
+    # elif label == 7:
+    #     st.write("Đây là quả Cam")
+    # elif label == 8:
+    #     st.write("Đây là quả Đào")
+    # elif label == 9:
+    #     st.write("Đây là quả Thơm")
+    # elif label == 10:
+    #     st.write("Đây là quả Dâu tây")
+    # elif label == 11:
+    #     st.write("Đây là quả Cà chua")
+    # elif label == 12:
+    #     st.write("Đây là quả Dưa hấu")
+    # elif label == 13:
+    #     st.write("Đây là quả Chanh dây")
+    # elif label == 14:
+    #     st.write("Đây là quả Lựu")
+    
+    # else:
+    #     st.write("Không rõ")
+    # st.write("Với tỷ lệ: ",score)
+
+    classify_and_label(image)
 
 
 upload_file2=st.file_uploader("Choose a video file", type="mp4")
@@ -115,4 +152,5 @@ if upload_file2 is not None:
             break
         else:
             st.write("duc")
+            classify_and_label(frame)
             #here iwant to upload te images
