@@ -6,9 +6,9 @@ import streamlit as st
 from img_classification import fruit_classification
 from PIL import Image
 import cv2
-from skimage import io
-from skimage.metrics import structural_similarity as compare_ssim
-import tempfile
+# from skimage import io
+# from skimage.metrics import structural_similarity as compare_ssim
+# import tempfile
 import numpy as np
 """
 # Welcome to Streamlit!
