@@ -6,8 +6,5 @@ pandas
 streamlit
 tensorflow
 keras
-
 numpy
-skimage
-tempfile
 opencv-python
