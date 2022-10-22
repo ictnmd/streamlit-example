@@ -8,7 +8,7 @@ from PIL import Image
 import cv2
 # from skimage import io
 # from skimage.metrics import structural_similarity as compare_ssim
-# import tempfile
+import tempfile
 import numpy as np
 """
 # Welcome to Streamlit!
