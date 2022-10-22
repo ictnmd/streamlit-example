@@ -3,7 +3,7 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
-from img_classification import teachable_machine_classification
+from img_classification import fruit_classification
 from PIL import Image
 
 """
@@ -42,15 +42,44 @@ with st.echo(code_location='below'):
         .encode(x='x:Q', y='y:Q'))
 
 
-uploaded_file = st.file_uploader("Choose a brain MRI ...", type="jpg")
+uploaded_file = st.file_uploader("Tải lên hình ảnh", type="jpg")
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
-    st.image(image, caption='Uploaded MRI.', use_column_width=True)
+    st.image(image, caption='Ảnh đã upload', use_column_width=True)
     st.write("")
     st.write("Classifying...")
-    label = teachable_machine_classification(image, 'keras_model.h5')
+    label, score = fruit_classification(image, 'keras_model.h5')
     if label == 0:
-        st.write("The MRI scan has a brain tumor")
+        st.write("Táo")
+    elif label == 1:
+        st.write("Bơ")
+    elif label == 2:
+        st.write("Chuối")
+    elif label == 3:
+        st.write("Nho")
+    elif label == 4:
+        st.write("Ổi")
+    elif label == 5:
+        st.write("Bơ")
+    elif label == 5:
+        st.write("Chanh")
+    elif label == 5:
+        st.write("Kiwi")
+    elif label == 5:
+        st.write("Cam")
+    elif label == 5:
+        st.write("Thơm")
+    elif label == 5:
+        st.write("Dâu tây")
+    elif label == 5:
+        st.write("Cà chua")
+    elif label == 5:
+        st.write("Dưa hấu")
+    elif label == 5:
+        st.write("Chanh dây")
+    elif label == 5:
+        st.write("Lựu")
+    
     else:
-        st.write("The MRI scan is healthy")
-
+        st.write("Không rõ")
+    st.write(score)

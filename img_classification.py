@@ -4,7 +4,7 @@ from PIL import Image, ImageOps
 import numpy as np
 
 
-def teachable_machine_classification(img, weights_file):
+def fruit_classification(img, weights_file):
     # Load the model
     model = keras.models.load_model(weights_file)
 
@@ -24,5 +24,8 @@ def teachable_machine_classification(img, weights_file):
     data[0] = normalized_image_array
 
     # run the inference
+
     prediction = model.predict(data)
-    return np.argmax(prediction) # return position of the highest probability
+    index = np.argmax(prediction)
+    confidence_score = prediction[0][index]
+    return index, confidence_score
