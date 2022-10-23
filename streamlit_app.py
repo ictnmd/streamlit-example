@@ -110,11 +110,14 @@ if upload_file2 is not None:
             cv2.putText(frame, CLASS_LIST[label], (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
             # Write The frame into the disk using the VideoWriter Object.
-            out_mp4.write(frame)
+            # out_mp4.write(frame)
+
+            st.image(Image.fromarray(frame), caption='Ảnh đã upload', use_column_width=True)
+
     # out_mp4.release()
     vf.release()
     
-    convertedVideo = "./testh264.mp4"
-    subprocess.call(args=f"ffmpeg -y -i {temp_file_result} -c:v libx264 {convertedVideo}".split(" "))
+    # convertedVideo = "./testh264.mp4"
+    # subprocess.call(args=f"ffmpeg -y -i {temp_file_result} -c:v libx264 {convertedVideo}".split(" "))
 
-    st.video(convertedVideo)
+    # st.video(convertedVideo)
