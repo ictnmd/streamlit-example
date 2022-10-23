@@ -10,6 +10,7 @@ import cv2
 # from skimage.metrics import structural_similarity as compare_ssim
 import tempfile
 import numpy as np
+from collections import deque
 """
 # Welcome to Streamlit!
 
@@ -137,14 +138,14 @@ if upload_file2 is not None:
     tfile.write(upload_file2.read())
 
     vf = cv2.VideoCapture(tfile.name)
-
+    frames_queue = deque(maxlen = SEQUENCE_LENGTH)
     stframe = st.empty()
     sec = 0
     count=0
     while vf.isOpened():
         vf.set(cv2.CAP_PROP_POS_MSEC, sec*1000)
         ret, frame = vf.read()
-        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        
         sec = sec + ret
         sec = round(sec, 2)
         # if frame is read correctly ret is True
@@ -152,6 +153,13 @@ if upload_file2 is not None:
             st.write("Can't receive frame (stream end?). Exiting ...")
             break
         else:
-            st.write("duc")
+            
+            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            normalized_frame = resized_frame / 255
+            resized_frame = cv2.resize(frame, (224, 224))
+
+            frames_queue.append(normalized_frame)
+
+
             classify_and_label(Image.fromarray(frame))
             #here iwant to upload te images
