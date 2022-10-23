@@ -111,5 +111,8 @@ if upload_file2 is not None:
             out_mp4.write(frame)
     out_mp4.release()
     vf.release()
-    st.video(temp_file_result)
+    
+    convertedVideo = "./testh264.mp4"
+    subprocess.call(args=f"ffmpeg -y -i {temp_file_result} -c:v libx264 {convertedVideo}".split(" "))
 
+    st.video(convertedVideo)
