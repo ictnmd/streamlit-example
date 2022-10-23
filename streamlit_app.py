@@ -118,7 +118,7 @@ if upload_file2 is not None:
             img_pil = Image.fromarray(frame)
             draw = ImageDraw.Draw(img_pil)
             draw.text((10, 30), CLASS_LIST[label] , font = font, fill = (0,255,0,0))
-            img_pil = cv2.imread(img_pil)
+            img_pil = numpy.array(img_pil) 
             img_pil = cv2.cvtColor(img_pil, cv2.COLOR_BGR2RGB)
             # img_pil = Image.toarray(img_pil)
             imageLocation.image(img_pil, caption='Ảnh đã upload', use_column_width=True)
