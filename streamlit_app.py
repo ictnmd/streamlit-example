@@ -82,6 +82,7 @@ if upload_file2 is not None:
     stframe = st.empty()
     sec = 0
     count=0
+    imageLocation = st.empty()
     while vf.isOpened():
         vf.set(cv2.CAP_PROP_POS_MSEC, sec*1000)
         ret, frame = vf.read()
@@ -112,7 +113,7 @@ if upload_file2 is not None:
             # Write The frame into the disk using the VideoWriter Object.
             # out_mp4.write(frame)
 
-            st.image(Image.fromarray(frame), caption='Ảnh đã upload', use_column_width=True)
+            imageLocation.image(Image.fromarray(frame), caption='Ảnh đã upload', use_column_width=True)
 
     # out_mp4.release()
     vf.release()
