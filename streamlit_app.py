@@ -144,7 +144,7 @@ if upload_file2 is not None:
     while vf.isOpened():
         vf.set(cv2.CAP_PROP_POS_MSEC, sec*1000)
         ret, frame = vf.read()
-        # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         sec = sec + ret
         sec = round(sec, 2)
         # if frame is read correctly ret is True
