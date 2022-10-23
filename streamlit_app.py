@@ -115,7 +115,7 @@ if upload_file2 is not None:
             # Write The frame into the disk using the VideoWriter Object.
             # out_mp4.write(frame)
 
-            img_pil = Image.fromarray(img)
+            img_pil = Image.fromarray(frame)
             draw = ImageDraw.Draw(img_pil)
             draw.text((10, 30), CLASS_LIST[label] , font = font, fill = (b, g, r, a))
 
