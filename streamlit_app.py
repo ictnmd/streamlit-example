@@ -53,8 +53,8 @@ if uploaded_file is not None:
 
 
 upload_file2=st.file_uploader("Choose a video file", type="mp4")
-fontpath = "./Baloo-Regular.ttf" # <== 这里是宋体路径 
-font = ImageFont.truetype(fontpath, 16)
+fontpath = "./Baloo-Regular.ttf" 
+font = ImageFont.truetype(fontpath, 48)
 
 
 if upload_file2 is not None:
@@ -86,7 +86,7 @@ if upload_file2 is not None:
     count=0
     imageLocation = st.empty()
     while vf.isOpened():
-        vf.set(cv2.CAP_PROP_POS_MSEC, sec*1000)
+        vf.set(cv2.CAP_PROP_POS_MSEC, sec*100)
         ret, frame = vf.read()
         
         sec = sec + ret
@@ -117,7 +117,7 @@ if upload_file2 is not None:
 
             img_pil = Image.fromarray(frame)
             draw = ImageDraw.Draw(img_pil)
-            draw.text((10, 30), CLASS_LIST[label] , font = font, fill = (0,255,0,0))
+            draw.text((30, 30), CLASS_LIST[label] + ", score: "+score , font = font, fill = (0,255,0,0))
             img_pil = np.array(img_pil) 
             img_pil = cv2.cvtColor(img_pil, cv2.COLOR_BGR2RGB)
             # img_pil = Image.toarray(img_pil)
