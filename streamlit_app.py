@@ -96,12 +96,13 @@ if upload_file2 is not None:
             break
         else:
             
-            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            
             
             resized_frame = cv2.resize(frame, (224, 224))
-            normalized_frame = resized_frame / 255
+            
+            resized_frame = cv2.cvtColor(resized_frame, cv2.COLOR_BGR2RGB)
             frames_queue.append(resized_frame)
 
 
-            classify_and_label(Image.fromarray(frame))
+            classify_and_label(Image.fromarray(frames_queue))
             #here iwant to upload te images
