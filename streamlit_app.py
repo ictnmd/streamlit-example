@@ -54,7 +54,7 @@ if uploaded_file is not None:
 
 upload_file2=st.file_uploader("Choose a video file", type="mp4")
 fontpath = "./Baloo-Regular.ttf" 
-font = ImageFont.truetype(fontpath, 48)
+font = ImageFont.truetype(fontpath, 42)
 
 
 if upload_file2 is not None:
@@ -86,7 +86,7 @@ if upload_file2 is not None:
     count=0
     imageLocation = st.empty()
     while vf.isOpened():
-        vf.set(cv2.CAP_PROP_POS_MSEC, sec*100)
+        vf.set(cv2.CAP_PROP_POS_MSEC, sec*200)
         ret, frame = vf.read()
         
         sec = sec + ret
