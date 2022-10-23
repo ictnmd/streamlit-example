@@ -13,16 +13,7 @@ import numpy as np
 from collections import deque
 import subprocess
 from ffmpy import FFmpeg
-"""
-# Welcome to Streamlit!
 
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:
-
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
-
-In the meantime, below is an example of what you can do with just a few lines of code:
-"""
 
 st.title("Fruit Classification")
 
@@ -43,7 +34,7 @@ def write_bytesio_to_file(filename, bytesio):
         # Copy the BytesIO stream to the output file
         outfile.write(bytesio.getbuffer())
 
-uploaded_file = st.file_uploader("Tải lên hình ảnh", type="jpg")
+uploaded_file = st.file_uploader("Chọn hình ảnh", type="jpg")
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption='Ảnh đã upload', use_column_width=True)
@@ -52,7 +43,7 @@ if uploaded_file is not None:
     classify_and_label(image)
 
 
-upload_file2=st.file_uploader("Choose a video file", type="mp4")
+upload_file2=st.file_uploader("Chọn video", type="mp4")
 fontpath = "./Baloo-Regular.ttf" 
 font = ImageFont.truetype(fontpath, 42)
 
@@ -74,10 +65,6 @@ if upload_file2 is not None:
     original_video_height = int(vf.get(cv2.CAP_PROP_FRAME_HEIGHT))
     frame_fps = vf.get(cv2.CAP_PROP_FPS)
 
-    # # Initialize the VideoWriter Object to store the output video in the disk.
-    # video_writer = cv2.VideoWriter(output_file_path, cv2.VideoWriter_fourcc('M', 'P', '4', 'V'),vf.get(cv2.CAP_PROP_FPS), (original_video_width, original_video_height))
-    
-    # specify a writer to write a processed video to a disk frame by frame
     fourcc_mp4 = cv2.VideoWriter_fourcc(*'mp4v')
     out_mp4 = cv2.VideoWriter(temp_file_result, fourcc_mp4, frame_fps, (original_video_width, original_video_height),isColor = True)
     frames_queue = deque(maxlen = 20)
@@ -91,7 +78,6 @@ if upload_file2 is not None:
         
         sec = sec + ret
         sec = round(sec, 2)
-        # if frame is read correctly ret is True
         if not ret:
             st.write("Can't receive frame (stream end?). Exiting ...")
             break
@@ -107,27 +93,13 @@ if upload_file2 is not None:
 
             label, score = classify_and_label(Image.fromarray(resized_frame))
 
-
-
-            # Write predicted class name on top of the frame.
-            # cv2.putText(frame, CLASS_LIST[label], (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-
-            # Write The frame into the disk using the VideoWriter Object.
-            # out_mp4.write(frame)
-
             img_pil = Image.fromarray(frame)
             draw = ImageDraw.Draw(img_pil)
             text = CLASS_LIST[label] + ", score: "+ str(score) 
             draw.text((30, 30),text , font = font, fill = (0,255,0,0))
             img_pil = np.array(img_pil) 
             img_pil = cv2.cvtColor(img_pil, cv2.COLOR_BGR2RGB)
-            # img_pil = Image.toarray(img_pil)
-            imageLocation.image(img_pil, caption='Ảnh đã upload', use_column_width=True)
+            imageLocation.image(img_pil, caption=text, use_column_width=True)
 
-    # out_mp4.release()
     vf.release()
     
-    # convertedVideo = "./testh264.mp4"
-    # subprocess.call(args=f"ffmpeg -y -i {temp_file_result} -c:v libx264 {convertedVideo}".split(" "))
-
-    # st.video(convertedVideo)
