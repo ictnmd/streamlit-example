@@ -4,7 +4,7 @@ import math
 import pandas as pd
 import streamlit as st
 from img_classification import fruit_classification
-from PIL import Image
+from PIL import Image, ImageFont, ImageDraw
 import cv2
 # from skimage import io
 # from skimage.metrics import structural_similarity as compare_ssim
@@ -113,6 +113,8 @@ if upload_file2 is not None:
             # Write The frame into the disk using the VideoWriter Object.
             # out_mp4.write(frame)
 
+
+            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             imageLocation.image(Image.fromarray(frame), caption='Ảnh đã upload', use_column_width=True)
 
     # out_mp4.release()
