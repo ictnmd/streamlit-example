@@ -12,6 +12,7 @@ import tempfile
 import numpy as np
 from collections import deque
 import subprocess
+from ffmpy import FFmpeg
 """
 # Welcome to Streamlit!
 
@@ -115,10 +116,6 @@ if upload_file2 is not None:
     vf.release()
     
     convertedVideo = "./testh264.mp4"
-    # subprocess.call(args=f"ffmpeg -y -i {temp_file_result} -c:v libx264 {convertedVideo}".split(" "))
+    subprocess.call(args=f"ffmpeg -y -i {temp_file_result} -c:v libx264 {convertedVideo}".split(" "))
 
-    # st.video(convertedVideo)
-    st.download_button(
-            label="Download image",
-            data=out_mp4,
-            file_name="temp_file_2.mp4")
+    st.video(convertedVideo)
