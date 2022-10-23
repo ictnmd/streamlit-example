@@ -29,8 +29,7 @@ st.title("Fruit Classification")
 CLASS_LIST = ['Táo','Bơ','Chuối','Nho','Ổi','Chanh','Kiwi','Cam','Đào','Thơm','Dâu tây','Cà chua','Dưa hấu','Chanh dây','Lựu']
 def classify_and_label(image):
     label, score = fruit_classification(image, 'keras_model.h5')
-    st.write('Đây là quả',CLASS_LIST[label])
-    st.write("Với tỷ lệ: ",score)
+    st.write('Đây là quả',CLASS_LIST[label], ", độ chính xác là ", score)
     return label, score
 
 
