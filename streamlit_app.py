@@ -57,14 +57,15 @@ upload_file2=st.file_uploader("Choose a video file", type="mp4")
 
 if upload_file2 is not None:
     st.video(upload_file2)
-
+    
     temp_file_to_save = './temp_file_1.mp4'
     temp_file_result  = './temp_file_2.mp4'
-    tfile = tempfile.NamedTemporaryFile(delete=False) 
-    tfile.write(upload_file2.read())
+    # tfile = tempfile.NamedTemporaryFile(delete=False) 
+    # tfile.write(upload_file2.read())
+    write_bytesio_to_file(temp_file_to_save, upload_file2)
 
-
-    vf = cv2.VideoCapture(tfile.name)
+    # vf = cv2.VideoCapture(tfile.name)
+    vf = cv2.VideoCapture(temp_file_to_save)
 
     # Get the width and height of the video.
     original_video_width = int(vf.get(cv2.CAP_PROP_FRAME_WIDTH))
