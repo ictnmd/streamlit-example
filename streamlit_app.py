@@ -119,8 +119,8 @@ if upload_file2 is not None:
             draw = ImageDraw.Draw(img_pil)
             draw.text((10, 30), CLASS_LIST[label] , font = font, fill = (0,255,0,0))
 
-            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            imageLocation.image(Image.fromarray(frame), caption='Ảnh đã upload', use_column_width=True)
+            img_pil = cv2.cvtColor(img_pil, cv2.COLOR_BGR2RGB)
+            imageLocation.image(Image.fromarray(img_pil), caption='Ảnh đã upload', use_column_width=True)
 
     # out_mp4.release()
     vf.release()
