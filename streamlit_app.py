@@ -24,28 +24,6 @@ In the meantime, below is an example of what you can do with just a few lines of
 
 st.title("Fruit Classification")
 
-
-with st.echo(code_location='below'):
-    total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
-    num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
-
-    Point = namedtuple('Point', 'x y')
-    data = []
-
-    points_per_turn = total_points / num_turns
-
-    for curr_point_num in range(total_points):
-        curr_turn, i = divmod(curr_point_num, points_per_turn)
-        angle = (curr_turn + 1) * 2 * math.pi * i / points_per_turn
-        radius = curr_point_num / total_points
-        x = radius * math.cos(angle)
-        y = radius * math.sin(angle)
-        data.append(Point(x, y))
-
-    st.altair_chart(alt.Chart(pd.DataFrame(data), height=500, width=500)
-        .mark_circle(color='#0068c9', opacity=0.5)
-        .encode(x='x:Q', y='y:Q'))
-
 def classify_and_label(image):
     label, score = fruit_classification(image, 'keras_model.h5')
     if label == 0:
@@ -89,42 +67,6 @@ if uploaded_file is not None:
     st.image(image, caption='Ảnh đã upload', use_column_width=True)
     st.write("")
     st.write("Classifying...")
-    # label, score = fruit_classification(image, 'keras_model.h5')
-    # if label == 0:
-    #     st.write("Đây là quả Táo")
-    # elif label == 1:
-    #     st.write("Đây là quả Bơ")
-    # elif label == 2:
-    #     st.write("Đây là quả Chuối")
-    # elif label == 3:
-    #     st.write("Đây là quả Nho")
-    # elif label == 4:
-    #     st.write("Đây là quả Ổi")
-    # elif label == 5:
-    #     st.write("Đây là quả Chanh")
-    # elif label == 6:
-    #     st.write("Đây là quả Kiwi")
-    # elif label == 7:
-    #     st.write("Đây là quả Cam")
-    # elif label == 8:
-    #     st.write("Đây là quả Đào")
-    # elif label == 9:
-    #     st.write("Đây là quả Thơm")
-    # elif label == 10:
-    #     st.write("Đây là quả Dâu tây")
-    # elif label == 11:
-    #     st.write("Đây là quả Cà chua")
-    # elif label == 12:
-    #     st.write("Đây là quả Dưa hấu")
-    # elif label == 13:
-    #     st.write("Đây là quả Chanh dây")
-    # elif label == 14:
-    #     st.write("Đây là quả Lựu")
-    
-    # else:
-    #     st.write("Không rõ")
-    # st.write("Với tỷ lệ: ",score)
-
     classify_and_label(image)
 
 
