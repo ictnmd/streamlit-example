@@ -75,7 +75,7 @@ if upload_file2 is not None:
     
     # specify a writer to write a processed video to a disk frame by frame
     fourcc_mp4 = cv2.VideoWriter_fourcc(*'mp4v')
-    out_mp4 = cv2.VideoWriter(temp_file_result, fourcc_mp4, frame_fps, (width, height),isColor = True)
+    out_mp4 = cv2.VideoWriter(temp_file_result, fourcc_mp4, frame_fps, (original_video_width, original_video_height),isColor = True)
     frames_queue = deque(maxlen = 20)
     stframe = st.empty()
     sec = 0
