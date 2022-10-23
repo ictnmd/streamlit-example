@@ -100,8 +100,8 @@ if upload_file2 is not None:
             
             resized_frame = cv2.resize(frame, (224, 224))
             normalized_frame = resized_frame / 255
-            frames_queue.append(normalized_frame)
+            frames_queue.append(resized_frame)
 
 
-            classify_and_label(Image.fromarray(resized_frame))
+            classify_and_label(Image.fromarray(frames_queue))
             #here iwant to upload te images
