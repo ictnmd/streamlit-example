@@ -58,7 +58,7 @@ font = ImageFont.truetype(fontpath, 42)
 
 
 if upload_file2 is not None:
-    st.video(upload_file2)
+    # st.video(upload_file2)
     
     temp_file_to_save = './temp_file_1.mp4'
     temp_file_result  = './temp_file_2.mp4'
