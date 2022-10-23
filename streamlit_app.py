@@ -106,14 +106,14 @@ if upload_file2 is not None:
 
 
             # Write predicted class name on top of the frame.
-            cv2.putText(frame, CLASS_LIST[label] + score, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+    #         cv2.putText(frame, CLASS_LIST[label] + score, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
-            # Write The frame into the disk using the VideoWriter Object.
-            out_mp4.write(frame)
-    out_mp4.release()
-    vf.release()
+    #         # Write The frame into the disk using the VideoWriter Object.
+    #         out_mp4.write(frame)
+    # out_mp4.release()
+    # vf.release()
     
-    convertedVideo = "./testh264.mp4"
-    subprocess.call(args=f"ffmpeg -y -i {temp_file_result} -c:v libx264 {convertedVideo}".split(" "))
+    # convertedVideo = "./testh264.mp4"
+    # subprocess.call(args=f"ffmpeg -y -i {temp_file_result} -c:v libx264 {convertedVideo}".split(" "))
 
-    st.video(convertedVideo)
+    # st.video(convertedVideo)
