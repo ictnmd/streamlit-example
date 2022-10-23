@@ -86,7 +86,7 @@ if upload_file2 is not None:
     count=0
     imageLocation = st.empty()
     while vf.isOpened():
-        vf.set(cv2.CAP_PROP_POS_MSEC, sec*200)
+        vf.set(cv2.CAP_PROP_POS_MSEC, sec*10)
         ret, frame = vf.read()
         
         sec = sec + ret
