@@ -161,5 +161,5 @@ if upload_file2 is not None:
             frames_queue.append(normalized_frame)
 
 
-            classify_and_label(Image.fromarray(normalized_frame))
+            classify_and_label(Image.fromarray(resized_frame))
             #here iwant to upload te images
