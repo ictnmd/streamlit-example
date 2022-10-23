@@ -18,7 +18,7 @@ def fruit_classification(img, weights_file):
     #turn the image into a numpy array
     image_array = np.asarray(image)
     # Normalize the image
-    normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
+    normalized_image_array = (image_array.astype(np.float32) / 255.0) - 1
 
     # Load the image into the array
     data[0] = normalized_image_array

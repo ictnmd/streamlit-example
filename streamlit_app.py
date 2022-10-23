@@ -106,7 +106,7 @@ if upload_file2 is not None:
 
 
             # Write predicted class name on top of the frame.
-            cv2.putText(frame, CLASS_LIST[label], (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+            cv2.putText(frame, CLASS_LIST[label] + score, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
             # Write The frame into the disk using the VideoWriter Object.
             out_mp4.write(frame)
