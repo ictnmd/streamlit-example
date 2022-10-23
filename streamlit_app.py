@@ -53,6 +53,8 @@ if uploaded_file is not None:
 
 
 upload_file2=st.file_uploader("Choose a video file", type="mp4")
+fontpath = "./Baloo-Regular.ttf" # <== 这里是宋体路径 
+font = ImageFont.truetype(fontpath, 16)
 
 
 if upload_file2 is not None:
@@ -108,11 +110,14 @@ if upload_file2 is not None:
 
 
             # Write predicted class name on top of the frame.
-            cv2.putText(frame, CLASS_LIST[label], (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+            # cv2.putText(frame, CLASS_LIST[label], (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
             # Write The frame into the disk using the VideoWriter Object.
             # out_mp4.write(frame)
 
+            img_pil = Image.fromarray(img)
+            draw = ImageDraw.Draw(img_pil)
+            draw.text((10, 30), CLASS_LIST[label] , font = font, fill = (b, g, r, a))
 
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             imageLocation.image(Image.fromarray(frame), caption='Ảnh đã upload', use_column_width=True)
