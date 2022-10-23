@@ -111,10 +111,14 @@ if upload_file2 is not None:
 
             # Write The frame into the disk using the VideoWriter Object.
             out_mp4.write(frame)
-    out_mp4.release()
+    # out_mp4.release()
     vf.release()
     
     convertedVideo = "./testh264.mp4"
-    subprocess.call(args=f"ffmpeg -y -i {temp_file_result} -c:v libx264 {convertedVideo}".split(" "))
+    # subprocess.call(args=f"ffmpeg -y -i {temp_file_result} -c:v libx264 {convertedVideo}".split(" "))
 
     st.video(convertedVideo)
+    st.download_button(
+            label="Download image",
+            data=out_mp4,
+            file_name="temp_file_2.mp4")
