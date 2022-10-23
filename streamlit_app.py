@@ -138,7 +138,7 @@ if upload_file2 is not None:
     tfile.write(upload_file2.read())
 
     vf = cv2.VideoCapture(tfile.name)
-    frames_queue = deque(maxlen = SEQUENCE_LENGTH)
+    frames_queue = deque(maxlen = 20)
     stframe = st.empty()
     sec = 0
     count=0
