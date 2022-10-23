@@ -117,7 +117,7 @@ if upload_file2 is not None:
 
             img_pil = Image.fromarray(frame)
             draw = ImageDraw.Draw(img_pil)
-            text = CLASS_LIST[label] + ", score: "+score 
+            text = CLASS_LIST[label] + ", score: "+ str(score) 
             draw.text((30, 30),text , font = font, fill = (0,255,0,0))
             img_pil = np.array(img_pil) 
             img_pil = cv2.cvtColor(img_pil, cv2.COLOR_BGR2RGB)
