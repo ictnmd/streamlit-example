@@ -155,9 +155,9 @@ if upload_file2 is not None:
         else:
             
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            normalized_frame = resized_frame / 255
+            
             resized_frame = cv2.resize(frame, (224, 224))
-
+            normalized_frame = resized_frame / 255
             frames_queue.append(normalized_frame)
 
 
